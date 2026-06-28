@@ -1,0 +1,12 @@
+# Projects
+
+Source for my software portfolio — <https://kisookim.github.io/projects/>
+
+A static site (no build step), served by GitHub Pages from the repo root.
+
+- `index.html` — portfolio landing (project grid)
+- `ai-usage-monitor-pop/` — AI Usage Monitor Pop project page
+- `styles.css`, `fonts/`, `assets/` — shared shell styling and assets
+
+Each project lives in its own subfolder and is self-contained (relative paths).
+Adding a project = drop in a subfolder and copy one card block in `index.html`.

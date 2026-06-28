@@ -1,0 +1,63 @@
+/* ---- tokens (neutral / monochrome shell) ---- */
+:root{
+  --bg:#0A0908; --bg-elev:#141115; --bg-card:#16141A;
+  --text:#F7F5F3; --text-dim:#A8A29C; --text-faint:#726C68;
+  --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.16);
+  --radius:16px; --container:1080px;
+  --pad-section:clamp(46px,7vw,96px);
+  --font:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@font-face{font-family:'Geist';src:url('fonts/Geist-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Geist';src:url('fonts/Geist-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Geist';src:url('fonts/Geist-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+
+/* ---- base ---- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
+  font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{line-height:1.06;letter-spacing:-.02em;font-weight:600;margin:0}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:4px}
+.container{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+
+@keyframes reveal-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.reveal{animation:reveal-in .6s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{animation:none}}
+
+/* ---- header ---- */
+header.site{padding-top:clamp(54px,9vw,108px);padding-bottom:clamp(30px,5vw,54px)}
+.brand{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin:0 0 20px}
+.lead{font-size:clamp(34px,6vw,58px);font-weight:600;letter-spacing:-.03em;margin:0 0 14px}
+.tagline{color:var(--text-dim);font-size:clamp(17px,2.2vw,21px);margin:0 0 24px;max-width:560px}
+.hlinks{display:flex;gap:12px;flex-wrap:wrap}
+.hlink{display:inline-flex;align-items:center;gap:.4em;color:var(--text-dim);font-size:15px;
+  padding:9px 17px;border:1px solid var(--border);border-radius:999px;
+  transition:border-color .15s,color .15s,background .15s}
+.hlink:hover{color:var(--text);border-color:var(--border-strong);background:rgba(255,255,255,.03)}
+
+/* ---- project grid ---- */
+.projects{padding-bottom:var(--pad-section)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:clamp(20px,3vw,30px)}
+.card{display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;transition:border-color .18s,transform .18s}
+.card:hover{border-color:var(--border-strong);transform:translateY(-3px)}
+.card-main{display:block}
+.card-thumb{aspect-ratio:16/9;overflow:hidden;background:#0b0a0d;border-bottom:1px solid var(--border)}
+.card-thumb img{width:100%;height:100%;object-fit:cover;object-position:center}
+.card-text{padding:20px 22px 4px}
+.card-text h3{font-size:20px;margin:0 0 7px;display:flex;align-items:center;gap:.4em}
+.card-text h3 .arr{color:var(--text-faint);font-weight:400;transition:transform .18s,color .18s}
+.card:hover .card-text h3 .arr{transform:translateX(3px);color:var(--text)}
+.card-text p{color:var(--text-dim);font-size:15.5px;line-height:1.55;margin:0}
+.card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 22px 20px;margin-top:auto}
+.tag{font-size:12.5px;color:var(--text-dim);border:1px solid var(--border);border-radius:999px;padding:4px 12px}
+.card-gh{font-size:14px;color:var(--text-dim);transition:color .15s}
+.card-gh:hover{color:var(--text)}
+
+/* ---- footer ---- */
+footer.site{border-top:1px solid var(--border);padding-block:40px;color:var(--text-faint);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.foot a{color:var(--text-dim)} .foot a:hover{color:var(--text)}
